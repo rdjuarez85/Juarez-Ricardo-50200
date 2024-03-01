@@ -1,0 +1,32 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">Seguimiento</h1>
+<br>
+<p class="lead text-white-50 mb-4">Ingrese los 6 digitos de la OT</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+        <form action="{% url 'seguimiento_buscar' %}" method="get" class="text-center">
+            {% csrf_token %}
+            <input type="text" name="buscar" id="buscar" required> 
+            <div style="margin-top: 20px;">
+                <input type="submit" class="btn btn-warning btn-md px-4 me-sm-3"  style="margin-left: 15px;" value="Buscar">
+                <a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'home' %}">Inicio</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock agregar %}
+
+
+

@@ -1,0 +1,64 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">Clientes</h1>
+<br>
+<p class="lead text-white-50 mb-4">Listado de clientes</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <div>
+        <a class="btn btn-primary btn-md px-4 me-sm-3" href="{% url 'nuevo_cliente' %}">Cliente nuevo</a>
+        <a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'home' %}">Inicio</a>
+    </div>    
+    
+    <form action="{% url 'buscar_clientes' %}" method="get">
+        {% csrf_token %}
+        <input type="submit" value=" Buscar clientes ">
+        <input type="text" name="buscar" id="buscar" required> 
+    </form>
+</div>
+
+<br>
+<br>
+
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>E-mail</th>
+                <th>Editar / Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in clientes %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.apellido }}</td>
+                <td>{{ c.email }}</td>
+                <td>
+                    <a href="{% url 'editar_cliente' c.id %}" class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-left: 10px; margin-right: 30px;">
+                        <i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a href="{% url 'eliminar_cliente' c.id %}" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        <i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>                
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock agregar %}

@@ -1,0 +1,31 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">ElectroLab</h1>
+<br>
+<p class="lead text-white-50 mb-4">Acerca de mi</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+<section id="nosotros">
+    <p style="color: white;">Mi nombre es Ricardo, tengo 38 años y soy de Mar del Plata, Bs As, Argentina. Trabajo en la distribuidora de gas Camuzzi como técnico de calle.</p>
+    <p style="color: white;">Siempre tuve interés en la programación, pero nunca pense en la idea de estudiar algo así. Como tuve que dejar el deporte (mi única distracción y cable  tierra) por una cuestión de tiempo, debido a que mis hijos tienen sus propias actividades deportivas, es que decidí ocupar la cabeza con esto.</p>
+    <p style="color: white;">Investigué un poco con que lenguaje empezar, ya que cuando te vas interiorizando es un mundo inmenso de posibilidades y alternativas. Fue ahí que me incliné por python ya que todos coincidían que es un lenguaje bastante simple para arrancar.</p>
+    <p style="color: white;">Empecé viendo videos por YouTube y llegué a un canal que se llama "Soy Dalto" al cual recomiendo mucho. Hasta que en un momento me pregunté, "Por qué no ir un poco mas allá?" Y es ahí donde me tiré de cabeza a Coder y empecé este curso.</p>
+    <p style="color: white;">El haber llegado hasta acá, habiendo finalizado el curso es más un logro personal. El poder haber dedicado tiempo, volver al estudio después de años de no tocar un libro, realmente fue un desafío para mí, así que más que contento.</p>
+    <p style="color: white;">Para finalizar quiero agradecer al profe Norman por la buena onda y predisposición. Lo mismo para los tutores Ruben y Lucho, siempre resolviendo las dudas que nos iban surgiendo. Para todos ellos, solo palabras de agradecimiento.</p>
+</section>
+<br>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+    <a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'home' %}">Inicio</a>
+</div>
+
+{% endblock agregar %}

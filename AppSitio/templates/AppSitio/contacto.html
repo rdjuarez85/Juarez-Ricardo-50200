@@ -1,0 +1,42 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">ElectroLab</h1>
+<br>
+<p class="lead text-white-50 mb-4">Contacto</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+<section id="contacto" style="background-color: transparent; padding: 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="color: white;">
+                <p><strong>Dirección:</strong> Avenida Siempreviva 742, Springfield</p>
+                <p><strong>Teléfono:</strong> +1234567890</p>
+                <p><strong>Correo electrónico:</strong> info@electrolab.com</p>
+                <div>
+                    <strong>Nuestras redes:</strong>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li><a href="#" style="text-decoration: none; color: white;"><i class="bi bi-facebook"></i> Facebook</a></li>
+                        <li><a href="#" style="text-decoration: none; color: white;"><i class="bi bi-twitter"></i> Twitter</a></li>
+                        <li><a href="#" style="text-decoration: none; color: white;"><i class="bi bi-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+    <a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'home' %}">Inicio</a>
+</div>
+
+{% endblock agregar %}

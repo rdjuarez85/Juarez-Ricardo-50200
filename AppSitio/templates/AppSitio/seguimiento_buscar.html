@@ -1,0 +1,48 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">Seguimiento</h1>
+<br>
+<p class="lead text-white-50 mb-4">Compruebe en que estado se encuentra su reparación</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>OT Nro</th>
+                <th>Dispositivo / Marca</th>
+                <th>Falla</th>
+                <th>Observaciones</th>
+                <th>Estado</th>                
+            </tr>
+        </thead>
+        <tbody>
+    {% for t in trabajos %}
+            <tr>
+                <td>{{ t.ot_nro }}</td>
+                <td>{{ t.dispositivo }}</td>
+                <td>{{ t.falla }}</td>
+                <td>{{ t.observaciones }}</td>
+                <td>{{ t.estado }}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+        <a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'seguimiento' %}">Volver</a>
+    </div>
+
+{% endblock agregar %}

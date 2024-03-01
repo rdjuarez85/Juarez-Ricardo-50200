@@ -1,0 +1,78 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">Compra / Venta</h1>
+<br>
+<p class="lead text-white-50 mb-4">Compra / Venta de articulos nuevos y usados</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <div>
+        <a class="btn btn-primary btn-md px-4 me-sm-3" href="{% url 'nueva_publicacion' %}">Nueva publicación</a>
+        <a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'home' %}">Inicio</a>
+    </div>
+    
+    <form action="{% url 'buscar_publicaciones' %}" method="get">
+        {% csrf_token %}
+        <input type="submit" value=" Buscar publicaciones ">
+        <input type="text" name="buscar" id="buscar" required> 
+    </form>
+</div>
+
+<br>
+<br>
+
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Condición</th>
+                <th>Precio</th>
+                <th>Vendedor</th>
+                <th>E-mail</th>
+
+                {% if si_es_admin %}                {% comment %} Si el usuario pertenece al grupo Admins va a mostrar Editar / Eliminar {% endcomment %}
+                <th>Editar / Eliminar</th>
+                {% endif %}
+
+            </tr>
+        </thead>
+        <tbody>
+    {% for p in publicacion %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.producto }}</td>
+                <td>{{ p.descripcion }}</td>
+                <td>{{ p.condicion }}</td>
+                <td>$ {{ p.precio }}</td>
+                <td>{{ p.vendedor }}</td>
+                <td>{{ p.email }}</td>
+
+                {% if si_es_admin %}                {% comment %} Si el usuario pertenece al grupo Admins va a mostrar los botones {% endcomment %}
+                <td>
+                    <a href="{% url 'editar_publicacion' p.id %}" class="btn btn-success" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-left: 10px; margin-right: 30px;">
+                        <i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a href="{% url 'eliminar_publicacion' p.id %}" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        <i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>                
+                </td>
+                {% endif %}
+
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock agregar %}

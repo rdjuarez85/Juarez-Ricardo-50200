@@ -1,0 +1,26 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">Eliminar OT</h1>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+<p class="lead text-white-50 mb-4">Está seguro que desea eliminar la OT:</p>
+<p class="lead text-white-50 mb-4"><span class="text-warning">{{ object }}</span></p>
+<br>
+<br>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+<input type="submit" class="btn btn-danger btn-md px-4 me-sm-3" value="Confirmar">
+<a class="btn btn-outline-light btn-md px-4 mx-3" href="{% url 'trabajos' %}">Volver</a>
+</div>
+
+{% endblock principal %}
+
+
+
+
+{% block agregar %}
+
+{% endblock agregar %}

@@ -1,0 +1,19 @@
+{% extends "AppSitio/home.html" %}
+
+
+{% block principal %}
+
+<h1 class="display-5 fw-bolder text-white mb-2">Logout</h1>
+<br>
+<p class="lead text-white-50 mb-4">Ha cerrado sesión correctamente. Será redirigido a la página principal</p>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center"></div>
+
+
+{% comment %} Redirige a home luego de 5 segundos {% endcomment %}
+<script>
+    setTimeout(function() {
+        window.location.href = "{% url 'home' %}";
+    }, 5000);
+</script>
+
+{% endblock principal %}
