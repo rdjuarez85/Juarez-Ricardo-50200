@@ -3,6 +3,8 @@
     --- Nombre del proyecto: ElectroLab
     --- Empresa dedicada a la reparación de todo tipo de dispositivos electrónicos.
 
+    --- Enlace al video de muestra:     https://youtu.be/FimwlkVvYIw
+
     --- Este proyecto tiene como funcionalidad tener un listado de los clientes, técnicos y ordenes de trabajo que tiene la empresa.
         A estos modelos se puede acceder siempre y cuando el usuario registrado tenga los permisos correspondientes.
         También tiene un apartado de compra / venta, en donde hay un listado al cual solo los usuarios registrados pueden acceder.
